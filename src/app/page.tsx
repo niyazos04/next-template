@@ -1,5 +1,9 @@
 import Image from "next/image";
-
+interface Post {
+  id: number;
+  title: string;
+  body: string;
+}
 async function getPosts() {
   const res = await fetch(
     "https://jsonplaceholder.typicode.com/posts?_limit=5"
@@ -23,7 +27,7 @@ export default async function Home() {
         />
         <h1 className="text-lg font-bold">Latest Posts</h1>
         <ul className="list-disc text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          {posts.map((post) => (
+          {posts.map((post: Post) => (
             <li key={post.id} className="mb-2">
               <h2 className="font-semibold">{post.title}</h2>
               <p>{post.body}</p>
