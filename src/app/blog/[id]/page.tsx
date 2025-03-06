@@ -1,11 +1,5 @@
 import { notFound } from "next/navigation";
 
-interface Post {
-  id: number;
-  title: string;
-  body: string;
-}
-
 async function getPost(id: string) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
     cache: "no-store", // Ensures fresh data for SSR
